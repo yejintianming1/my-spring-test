@@ -11,6 +11,7 @@ import org.springframework.beans.factory.parsing.NullSourceExtractor;
 import org.springframework.beans.factory.xml.*;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.core.env.StandardEnvironment;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.util.StringUtils;
@@ -27,6 +28,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Set;
 
 public class MyTestBeanTest extends TestCase {
 
@@ -34,6 +36,13 @@ public class MyTestBeanTest extends TestCase {
     public void test() {
         String str = " xida  o小 王 ";
         System.out.println(str.replaceAll("\\s*",""));
+    }
+
+    public void test1() {
+        Set<String> strings = new StandardEnvironment().getSystemProperties().keySet();
+        for (String string : strings) {
+            System.out.println(string+"="+new StandardEnvironment().getSystemProperties().get(string));
+        }
     }
 
 
@@ -102,7 +111,7 @@ public class MyTestBeanTest extends TestCase {
             System.out.println("该node is default namespace");
         }
 
-//        BeanFactory bf = new XmlBeanFactory(new ClassPathResource("bean/MyTestBean.xml"));
+//        BeanFactory bf = new XmlBeanFactory(new ClassPathResource("bean/AttributeParseTest.xml"));
 //        MyTestBean bean = (MyTestBean) bf.getBean("myTestBean");
 //        assertEquals("testStr",bean.getTestStr());
     }

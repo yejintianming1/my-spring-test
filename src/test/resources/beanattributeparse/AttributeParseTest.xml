@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <beans profile="default">
+        <bean id="user" class="beanattributeparse.User" scope="prototype" autowire="byName" >
+            <property name="name" value="小王"></property>
+        </bean>
+        <bean id="address" class="beanattributeparse.Address">
+            <property name="addr" value="上海市青浦区明珠路1018号"></property>
+            <property name="province" value="上海"></property>
+        </bean>
+        <bean id="userFactory" class="beanattributeparse.UserFactory" factory-method="getUser"></bean>
+
+<!--        <bean class="beanattributeparse.User">-->
+<!--            <property name="name" value="小王"/>-->
+<!--        </bean>-->
+
+    </beans>
+
+    <beans profile="dev">
+        <bean id="user" class="beanattributeparse.User">
+            <property name="name" value="456"></property>
+        </bean>
+    </beans>
+
+
+</beans>
+
