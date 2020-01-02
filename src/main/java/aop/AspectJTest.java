@@ -3,10 +3,13 @@ package aop;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 
+import javax.xml.ws.soap.Addressing;
+
 @Aspect
 public class AspectJTest {
 
     @Pointcut("execution(* *.test(..))")
+//    @Pointcut("@annotation()")
     public void test() {
 
     }
