@@ -3,6 +3,7 @@ package pattern.lazySingletonsafePattern;
 public class LazySimpleSingleton {
 
     private LazySimpleSingleton() {
+
     }
 
     private static LazySimpleSingleton lazy = null;
